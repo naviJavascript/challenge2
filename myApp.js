@@ -23,15 +23,12 @@ app.get('/', (req, res) => {
 app.use('/public', express.static(stylePath));
 
 app.get('/json', (req,  res) => {
-    let hello = '';
+    let response = 'Hello json';
     if (process.env.MESSAGE_STYLE === 'uppercase') {
-        hello = hello.toUpperCase();
-    } else {
-        hello = 'Hello json';
+        response = response.toUpperCase();
     }
-    res.json({"message": hello});
+    res.json({"message": response});
 });
-
 
 
 
