@@ -2,9 +2,10 @@ let express = require('express');
 let app = express();
 
 console.log('hello world');
-console.log(__dirname);
+// console.log(__dirname);
 
-const absolutePath = __dirname + '/views/index.html';
+const indexPath = __dirname + '/views/index.html';
+const stylePath = __dirname + '/public';
 
 /*
 app.get('/', (req, res) => {
@@ -12,9 +13,14 @@ app.get('/', (req, res) => {
 });
 */
 
+
 app.get('/', (req, res) => {
-    res.sendFile(absolutePath);
+    res.sendFile(indexPath);
 });
+
+app.use('/public', express.static(stylePath));
+
+
 
 
 
