@@ -24,6 +24,8 @@ app.get('/', (req, res) => {
     res.sendFile(indexPath);
 });
 
+// con el middleware express.static se pueden servir archivos estaticos
+// como hojas de estilo por ejemplo
 app.use('/public', express.static(stylePath));
 
 app.get('/json', (req,  res) => {
