@@ -43,7 +43,11 @@ app.get('/now', (req, res, next) => {
     res.send({"time": req.time});
 });
 
-
+app.get('/:word/echo', (req,res) => {
+    let word = req.params.word;
+    console.log(word);
+    res.send({echo: word});
+});
 
 
 
