@@ -7,7 +7,7 @@ console.log('hello world');
 // console.log(__dirname);
 
 const indexPath = __dirname + '/views/index.html';
-const stylePath = __dirname + '/public';
+const public = __dirname + '/public';
 
 /*
 app.get('/', (req, res) => {
@@ -25,8 +25,10 @@ app.get('/', (req, res) => {
 });
 
 // con el middleware express.static se pueden servir archivos estaticos
-// como hojas de estilo por ejemplo
-app.use('/public', express.static(stylePath));
+// la ventaja de usar este middeleware es que podemos servir toda una carpeta
+// en este caso la carpeta public donde estan los archivos estaticos, como hojas de
+// estilo y js
+app.use('/public', express.static(public));
 
 app.get('/json', (req,  res) => {
     let response = 'Hello json';
@@ -50,7 +52,14 @@ app.get('/:word/echo', (req,res) => {
 });
 
 
+// parametros de consulta o parametros query
+app.route('/name').get((req, res) => {
+    let first = req.query.first;
+    let last = req.query.last;
+    res.send({name: first + " " + last});
+}).post((req, res) => {
 
+});
 
 
 
